@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /CuoiKi_LTWUD/
+
+
+
+RewriteRule ^tour/([a-zA-Z0-9\-]+)/([0-9]+)/([0-9]+)/?$ index.php?pg=detail&tourid=$2&categoryid=$3 [QSA,L]
+
+
+RewriteRule ^([a-zA-Z0-9\-]+)/([0-9]+)/?$ index.php?pg=newsdetail&newsid=$2 [QSA,L]

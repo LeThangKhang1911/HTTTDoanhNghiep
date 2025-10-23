@@ -1,0 +1,34 @@
+body {
+    background-image: url('../image/background-login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.col-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-login {
+    text-align: center;
+    color: #ff8c00;
+}
+
+a {
+    text-decoration: none;
+}
+
+.img-login {
+    align-items: center;
+    justify-content: center;
+}
+
+.link-login:hover {
+    transform: scale(1.2);
+}

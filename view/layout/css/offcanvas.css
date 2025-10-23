@@ -1,0 +1,66 @@
+.offcanvas-background {
+    background-image: url(../image/anam-resort-nha-trang-vietnam-23.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.offcanvas-btn {
+    margin: 10px 0px;
+}
+
+.off-btn-css {
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 217, 156, 0.4);
+    line-height: 40px;
+    width: 100px;
+}
+
+.off-btn-css:hover {
+    background-color: darkorange;
+    color: #007BFF;
+    transition: 0.5s;
+}
+
+.off-list-menu {
+    list-style: none;
+}
+
+.off-list-item {
+    text-decoration: none;
+    color: #026ca6;
+    margin: 5px;
+}
+
+.off-list-link {
+    text-decoration: none;
+    font-size: larger;
+    color: #026ca6;
+}
+
+.off-list-link:hover {
+    display: block;
+    color: brown;
+    transition: 0.4s;
+}
+
+.off-list-location {
+    list-style: none;
+}
+
+.off-list-loca-link {
+    text-decoration: none;
+    color: #026ca6;
+    padding-left: 20px;
+}
+
+.off-list-loca-link:hover {
+    display: block;
+    color: brown;
+    transition: 0.4s;
+}
+
+

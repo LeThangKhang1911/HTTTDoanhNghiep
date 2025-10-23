@@ -1,0 +1,140 @@
+/* vị trí navbar khi có form tìm kiếm */
+.navbar {
+    position: relative;
+    z-index: 100;
+}
+
+/* nền navbar */
+.nav-bg-slide {
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+@media (max-width: 992px){
+    .nav-bg-slide {
+        height: 300px;
+    }
+}
+
+
+/* nút tìm kiếm */
+#btn-nav-search {
+    border-radius: 8px;
+    width: 45px;
+    height: 35px;
+    margin-left: 3px;
+    background-color: chocolate;
+    border: none;
+}
+
+/* Danh sách dropdown */
+.list-location {
+    list-style: none;
+    font-weight: bold;
+}
+.dropdown-menu {
+    display: none !important;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block !important;
+    margin-top: 0;
+}
+
+/* dropdown */
+.dropdown-navbar {
+    width: 650px; 
+    left: -200px; 
+    transform: translateX(-50%); 
+    top: 100%; 
+    display: flex;
+    padding: 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.5) !important; 
+}
+
+.dropdown-col {
+    width: 100%;
+}
+
+/* chỉnh màu chữ menu */
+.nav-navigation-link {
+    color: azure !important;
+    font-weight: bold !important;
+    font-size: large !important;
+} 
+.nav-navigation-link:hover {
+    color: burlywood !important;
+    border-bottom: solid 3px burlywood;
+    transform: scale(1.2);
+}
+
+/* Hiệu ứng contact text */
+.contact-link:hover {
+    color: brown !important;
+}
+
+/* Form tìm kiếm */
+#form-container {
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3); 
+    margin-top: 10px;
+    width: 250px;
+    padding: 15px;
+    position: absolute;
+    transform: translateX(-70%);
+    z-index: 1000;
+    display: none;
+}
+.search-form {
+    display: flex;
+    flex-direction: column;
+}
+.form-input {
+    background: rgba(255, 255, 255, 0.3); 
+    border: none;
+}
+.form-input:focus {
+    background-color: rgba(33, 181, 181, 0.3);
+    outline: none !important;
+}
+
+/* kích thước nút chỉnh background */
+.carousel-control-prev,
+.carousel-control-next {
+    height: 100px;
+    width: 150px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 992px){
+    .carousel-control-prev,
+    .carousel-control-next {
+        height: 50px;
+        width: 150px !important;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-35%);
+    }
+}
+
+/* ẩn chữ trên thanh liên hệ */
+@media (max-width: 790px) {
+    .nav-contact-text {
+        display: none !important;
+    }
+}
+
+/* ẩn menu khi màn hình nhỏ */
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none !important;
+    }
+}
+

@@ -1,0 +1,168 @@
+/*hieu ung canh hoa roi*/
+#container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    overflow: hidden; 
+}
+
+@keyframes animationSakura{
+    0%{
+        transform: translate(0,0);
+        opacity: 0;
+    }
+    30%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: translate(100px,50vh)  rotate(200deg);
+    }
+}
+.custom-width {
+    max-width: 85%;  /*Dat chieu rong toi da*/
+    object-fit: cover;
+    margin: auto;      /*Can giua*/
+    display: block;
+}
+.thumbnail {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+}
+.thumbnail:hover {
+    border: 2px solid #198754; 
+}
+.breadcrumb {
+    font-size: 16px; 
+    font-weight: 500;  
+
+}
+.breadcrumb-item {
+    color: brown;
+}
+.breadcrumb-item a {
+    text-decoration: none; 
+    color: red;
+}
+.breadcrumb-item a:hover {
+    color: blue; 
+}
+.nav-tabs .nav-link {
+    font-weight: 500;
+    color: brown; 
+    border: none;
+}
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid #f9a825; 
+    color: #f9a825;
+}
+.nav-tabs .nav-link:hover {
+    color: #f9a825;
+}
+
+.card {
+    margin: 20px 0px;
+    height: 450px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.product-img-link {
+    overflow: hidden;
+}
+
+.product-card-img:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: gray;
+    font-size: 14px;
+}
+
+.price {
+    color: #007bff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.vehicle {
+    margin-left: auto;
+}
+
+.bi {
+    font-size: large;
+}
+
+.tour-name {
+    display: inline-block; 
+    text-decoration: none;
+    transform-origin: center center; 
+    transition: transform 0.5s ease, color 0.5s ease; 
+}
+
+.tour-name:hover {
+    text-decoration: underline;
+    color: maroon;
+}
+
+.content { 
+    display: none; 
+} 
+
+.active-content { 
+    display: block; 
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.pic-noidung {
+    display: block;  
+    margin: 20px auto; 
+    width: 70%; 
+    max-height: auto; 
+    max-height: 80%; 
+    object-fit: contain; 
+}
+.tab-content {
+    border: 1px solid #ddd;
+    padding: 0; /* Loại bỏ padding để iframe khớp với viền */
+    overflow: hidden; /* Cắt bỏ phần nội dung dư thừa */
+    border-radius: 0 0 5px 5px; /* Bo góc dưới của tab */
+}
+
+.tab-content iframe {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+    display: block;
+}

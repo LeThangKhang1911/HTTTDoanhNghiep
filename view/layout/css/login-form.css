@@ -1,0 +1,47 @@
+body {
+    background-image: url('../image/background-login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login {
+    background-color: aliceblue;
+}
+
+.loichao {
+    color: red;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.label-text {
+    font-size: larger;
+    color: blue;
+}
+
+.bi {
+    font-size: 20px;
+}
+
+.link-forgot-password {
+    text-decoration: none;
+    display: flex;
+    justify-content: end;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    margin: 10px;
+    width: 110px;
+}
