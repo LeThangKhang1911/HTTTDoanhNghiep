@@ -1,0 +1,166 @@
+
+-- Database: web_ck
+CREATE DATABASE IF NOT EXISTS `web_ck` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `web_ck`;
+
+-- Table: menu
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `meta` VARCHAR(255) DEFAULT NULL,
+  `link` VARCHAR(255) DEFAULT NULL,
+  `hide` TINYINT(1) DEFAULT 0,
+  `ordered` INT DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: slide
+CREATE TABLE IF NOT EXISTS `slide` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `caption` VARCHAR(255) DEFAULT NULL,
+  `hide` TINYINT(1) DEFAULT 0,
+  `ordered` INT DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: canhdep (beautiful places)
+CREATE TABLE IF NOT EXISTS `canhdep` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `description` TEXT,
+  `hide` TINYINT(1) DEFAULT 0,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: news
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `slug` VARCHAR(255) DEFAULT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `content` TEXT,
+  `hide` TINYINT(1) DEFAULT 0,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: tour
+CREATE TABLE IF NOT EXISTS `tour` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `slug` VARCHAR(255) DEFAULT NULL,
+  `category` INT DEFAULT NULL,
+  `price` DECIMAL(12,2) DEFAULT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `description` TEXT,
+  `hide` TINYINT(1) DEFAULT 0,
+  `ordered` INT DEFAULT 0,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: chitiettour (tour details)
+CREATE TABLE IF NOT EXISTS `chitiettour` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `tour_id` INT NOT NULL,
+  `title` VARCHAR(255) DEFAULT NULL,
+  `content` TEXT,
+  FOREIGN KEY (`tour_id`) REFERENCES `tour`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: lichtrinhtour (itineraries)
+CREATE TABLE IF NOT EXISTS `lichtrinhtour` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `tour_id` INT NOT NULL,
+  `day_order` INT DEFAULT 0,
+  `title` VARCHAR(255) DEFAULT NULL,
+  `content` TEXT,
+  FOREIGN KEY (`tour_id`) REFERENCES `tour`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: booktour (bookings)
+CREATE TABLE IF NOT EXISTS `booktour` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `tour_id` INT NOT NULL,
+  `userid` INT DEFAULT NULL,
+  `fullname` VARCHAR(255) DEFAULT NULL,
+  `email` VARCHAR(255) DEFAULT NULL,
+  `phone` VARCHAR(50) DEFAULT NULL,
+  `quantity` INT DEFAULT 1,
+  `status` VARCHAR(50) DEFAULT 'pending',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`tour_id`) REFERENCES `tour`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- Table: user
+CREATE TABLE IF NOT EXISTS `user` (
+  `userid` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(100) DEFAULT NULL,
+  `fullname` VARCHAR(255) DEFAULT NULL,
+  `email` VARCHAR(255) DEFAULT NULL,
+  `password` VARCHAR(255) DEFAULT NULL,
+  `role` VARCHAR(50) DEFAULT 'user',
+  `address` VARCHAR(255) DEFAULT NULL,
+  `phone` VARCHAR(50) DEFAULT NULL,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: category
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) NOT NULL,
+  `meta` VARCHAR(255) DEFAULT NULL,
+  `hide` TINYINT(1) DEFAULT 0,
+  `ordered` INT DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: comment
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `tour_id` INT DEFAULT NULL,
+  `userid` INT DEFAULT NULL,
+  `content` TEXT,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (`tour_id`) REFERENCES `tour`(`id`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: contact (customer messages)
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `email` VARCHAR(255) DEFAULT NULL,
+  `phone` VARCHAR(50) DEFAULT NULL,
+  `message` TEXT,
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: admin
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
+  `fullname` VARCHAR(255) DEFAULT NULL,
+  `role` VARCHAR(50) DEFAULT 'admin',
+  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table: dieuchinhslide, dieuchinhnews, dieuchinhtour (settings)
+CREATE TABLE IF NOT EXISTS `dieuchinhslide` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `keyname` VARCHAR(255) DEFAULT NULL,
+  `value` TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `dieuchinhnews` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `keyname` VARCHAR(255) DEFAULT NULL,
+  `value` TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS `dieuchinhtour` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `keyname` VARCHAR(255) DEFAULT NULL,
+  `value` TEXT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- End of file
